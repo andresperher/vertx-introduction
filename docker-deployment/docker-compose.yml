@@ -1,0 +1,19 @@
+version: '3.7'
+
+
+services:
+
+  postgres:
+    container_name: users-db
+    image: postgres
+
+    ports:
+      - "5432:5432"
+
+    environment:
+      POSTGRES_DB: vertx-intro
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+
+    volumes:
+      - ./databind/pg-initdb.d:/docker-entrypoint-initdb.d
